@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+   attributes:
+    post:
+     name: 名前
+     title: 遺産名
+     body: 紹介文
+     cname: 国名
+     fee: 料金
+     information: お役立ち情報
+    user:
+     name: 名前
+     mail: メールアドレス
+     password: パスワード 
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."

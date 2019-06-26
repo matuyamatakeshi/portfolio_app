@@ -1,0 +1,43 @@
+</div>
+<% if flash[:error_messages] %>
+<div class="alert alert-danger flashitem2">
+    <ul style="list-style: none;">
+        <% flash[:error_messages].each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+<%= form_for @post do |f| %>
+<div class="form-group">
+    <%= f.label :name, '名前', class: 'hitem1' %> <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+    <%= f.text_field :name, class: 'form-control' %>
+</div>
+<div class="form-group">
+    <%= f.label :title, '遺産名', class: 'hitem1' %> <i class="fa fa-university" aria-hidden="true"></i>
+    <%= f.text_field :title, class: 'form-control' %>
+</div>
+<div class="form-group">
+    <%= f.label :body, '紹介文', class: 'hitem1' %> <i class="fa fa-file-text" aria-hidden="true"></i>
+    <%= f.text_area :body, class: 'form-control', rows: 10 %>
+</div>
+<div class="form-group">
+    <%= f.label '関連写真', class: 'hitem1' %> <i class="fa fa-camera-retro" aria-hidden="true"></i><br>
+    <%= f.file_field :image %>
+</div>
+<div class="row">
+    <div class="col-7">
+        <%= f.label :information, 'お役立ち情報', class: 'hitem1' %> <i class="fa fa-commenting" aria-hidden="true"></i>
+        <%= f.text_area :information, class: 'form-control', rows: 10 %>
+    </div>
+    <div class="col-5">
+        <%= f.label :cname, '国名', class: 'hitem1' %> <i class="fa fa-flag" aria-hidden="true"></i>
+        <%= f.text_field :cname, class: 'form-control' %>
+        <%= f.label :fee, '料金', class: 'hitem1' %> <i class="fa fa-jpy" aria-hidden="true"></i>
+        <%= f.text_area :fee, class: 'form-control', rows: 4 %>
+    </div>
+</div>
+<div class="py-4">
+    <%= f.submit '保存', class: 'btn btn-warning' %>
+    <% end %>
+</div>

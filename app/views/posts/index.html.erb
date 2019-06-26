@@ -1,0 +1,74 @@
+<%= render partial: 'navber' %>
+<div class="backimg1">
+    <div class="imgmsk">
+        <div class="container">
+            <div class="d-flex align-items-center py-3 indexitem1">
+                <h1 class="dsplay-4 mt-5">
+                    <%= link_to '投稿一覧', posts_path %>
+                </h1>
+                <div class="ml-auto mt-5 pt-2 boards__linkBox">
+                    <div>
+                        <%= search_form_for @q do |f| %>
+                        <i class="fa fa-search-plus" aria-hidden="true"></i> <%= f.label :title_cont, "遺産名" %>
+                        <%= f.search_field :title_cont %>
+                        <%= f.submit "検索", class: 'btn btn-primary actions' %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <% if flash[:notice] %>
+                <div class="alert alert-primary col-12 flashitem1"><%= flash[:notice] %></div>
+                <% end %>
+            </div>
+            <div class="row">
+                <% if flash[:alert] %>
+                <div class="alert alert-danger col-12 flashitem1"><%= flash[:alert] %></div>
+                <% end %>
+            </div>
+            <table class="table table-hover boards__table indexitem2">
+                <thead class="tbg">
+                    <tr>
+                        <th></th>
+                        <th>遺産名</th>
+                        <th>作成者</th>
+                        <th>作成日時</th>
+                        <th>更新日時</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @posts.each do |p| %>
+                    <tr>
+                        <td class="tbg"></td>
+                        <td><%= p.title %></td>
+                        <td><%= p.name %></td>
+                        <td><%= p.created_at.to_s(:datetime_jp) %></td>
+                        <td><%= p.updated_at.to_s(:datetime_jp) %></td>
+                        <td><%= link_to '詳細', post_path(p), class: 'btn btn-info' %></td>
+                        <td><%= link_to '削除', post_path(p), class: 'btn btn-danger', method: :delete, data: { confirm: '投稿を削除してもよろしいですか？' }  %></td>
+                        <td class="tbg"></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+                <thead class="tbg">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+            <div class="pt-3 pb-5">
+                <div class="py-3 tbg pageitem"><%= paginate @posts %></div>
+            </div>
+        </div>
+    </div>
+</div>

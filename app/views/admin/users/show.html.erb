@@ -1,0 +1,46 @@
+<%= render partial: 'navber' %>
+
+<div class="container my-5 pb-3 pt-4 backimg2">
+    <% if flash[:notice] %>
+    <div class="alert alert-warning col-12 flashitem1"><%= flash[:notice] %></div>
+    <% end %>
+    <div class="d-flex">
+        <h1>ユーザー詳細</h1>
+        <div class="ml-auto">
+            <%= link_to '編集', edit_admin_user_path, class: 'btn btn-warning' %>
+            <%= link_to '削除', admin_user_path(@user), class: 'btn btn-danger', method: :delete, data: { confirm: 'ユーザーデータを削除してもよろしいですか？' }  %>
+        </div>
+    </div>
+    <div class="card mt-3">
+        <div class="card-header">
+            <h4>名前</h4>
+        </div>
+        <div class="card-body">
+            <%= @user.name %>
+        </div>
+    </div>
+    <div class="card mt-3">
+        <div class="card-header">
+            <h4>メースアドレス</h4>
+        </div>
+        <div class="card-body">
+            <%= @user.mail %>
+        </div>
+    </div>
+    <div class="card mt-3">
+        <div class="card-header">
+            <h4>作成日時</h4>
+        </div>
+        <div class="card-body">
+            <%= @user.created_at.to_s(:datetime_jp) %>
+        </div>
+    </div>
+    <div class="card mt-3 mb-5">
+        <div class="card-header">
+            <h4>更新日時</h4>
+        </div>
+        <div class="card-body">
+            <%= @user.updated_at.to_s(:datetime_jp) %>
+        </div>
+    </div>
+</div>

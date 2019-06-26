@@ -1,0 +1,8 @@
+<%= render partial: 'navber' %>
+<div class="container backimg2 my-5 fontcolor">
+    <h1 class="py-3">アカウント新規作成</h1>
+    <% if flash[:notice] %>
+    <div class="alert alert-danger col-12 flashitem1"><%= flash[:notice] %></div>
+    <% end %>
+    <%= render partial: 'form', locals: { user: @user } %>
+</div>

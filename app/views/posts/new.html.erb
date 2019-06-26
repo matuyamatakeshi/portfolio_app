@@ -1,0 +1,10 @@
+<%= render partial: 'navber' %>
+<div class="container backimg2 my-5">
+    <div class="d-flex align-items-center py-3">
+        <h1>新規投稿</h1>
+        <div class="ml-auto boards__linkBox">
+            <div><%= link_to '戻る', posts_path, class: 'btn btn-primary' %></div>
+        </div>
+        <%= render partial: 'form' %>
+    </div>
+</div>
