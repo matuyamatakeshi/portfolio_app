@@ -5,6 +5,7 @@
             <div class="d-flex align-items-center py-3 indexitem1">
                 <h1 class="dsplay-4 mt-5">
                     <%= link_to '投稿一覧', posts_path %>
+                    <%= ENV["S3_REGION"] %>
                 </h1>
                 <div class="ml-auto mt-5 pt-2 boards__linkBox">
                     <div>
