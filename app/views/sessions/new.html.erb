@@ -15,7 +15,7 @@
             <p>ログインしてみんなと旅行の思い出を共有しましょう！</p>
             <%= form_with scope: :session, local: true do |f| %>
             <div class="form-group">
-                <i class="fa fa-envelope-o" aria-hidden="true"></i> <%= f.label :mail, 'メールアドレス' %>
+                <i class="fas fa-envelope"></i> <%= f.label :mail, 'メールアドレス' %>
                 <%= f.text_field :mail, class: 'form-control', id: 'session_mail' %>
             </div>
             <div class="form-group">
