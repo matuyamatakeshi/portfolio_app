@@ -10,9 +10,11 @@
         <div class="col-lg-7 col-12">
             <img src="assets/sw2.jpg" class="mx-lg-1 my-lg-4 m-4">
         </div>
-        <div class="col-lg-5 col-12 fontcolor my-lg-5 mb-5">
-            <h1 class="pt-4 loginitem">Share Heritage</h1>
-            <p>ログインしてみんなと旅行の思い出を共有しましょう！</p>
+        <div class="col-lg-5 col-12 my-lg-5 mb-5">
+            <div class="cw">
+                <h1 class="pt-4 loginitem">Share Heritage</h1>
+                <p>ログインしてみんなと旅行の思い出を共有しましょう！</p>
+            </div>
             <%= form_with scope: :session, local: true do |f| %>
             <div class="form-group">
                 <i class="fas fa-envelope"></i> <%= f.label :mail, 'メールアドレス' %>
