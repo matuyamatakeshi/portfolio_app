@@ -13,7 +13,7 @@
         <div class="col-lg-5 col-12 my-lg-5 mb-5">
             <div class="cw">
                 <h1 class="pt-4 loginitem">Share Heritage</h1>
-                <p>ログインしてみんなと旅行の思い出を共有しましょう！</p>
+                <p class="pt-2">新規登録してみんなと旅行の思い出を共有しましょう！</p>
             </div>
             <%= form_with scope: :session, local: true do |f| %>
             <div class="form-group">
@@ -25,11 +25,11 @@
                 <%= f.text_field :password, class: 'form-control', id: 'session_password' %>
             </div>
             <div class="d-flex">
-                <div class="pt-4 pr-3">
+                <div class="pt-3 pr-3">
                     <%= f.submit 'ログイン', class: 'btn btn-primary' %>
                     <% end %>
                 </div>
-                <div class="pt-4">
+                <div class="pt-3">
                     <%= link_to '新規登録', new_admin_user_path, class: 'btn btn-warning' %>
                 </div>
             </div>
