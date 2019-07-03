@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.delete
+    @post.destroy
     redirect_to posts_path, flash: { alert: "#{@post.title}の投稿を削除しました" }
   end
 

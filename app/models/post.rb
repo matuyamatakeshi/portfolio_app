@@ -15,6 +15,9 @@
 #
 
 class Post < ApplicationRecord
+
+    has_many :comments, dependent: :destroy
+
     validates :name, presence: true, length: { maximum: 10 }
     validates :cname, presence: true, length: { maximum: 10 }
     validates :title, presence: true, length: { maximum: 15 }
