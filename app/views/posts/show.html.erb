@@ -11,6 +11,9 @@
     <% if flash[:notice] %>
     <div class="alert alert-warning col-12 flashitem1"><%= flash[:notice] %></div>
     <% end %>
+    <% if flash[:alert] %>
+    <div class="alert alert-danger col-12 flashitem1"><%= flash[:alert] %></div>
+    <% end %>
     <div class="card mb-3">
         <div class="card-header">
             <h4 class="m-0 p-0">
@@ -47,21 +50,22 @@
     </div>
     <div>
         <h2 class="py-5 pl-3 cw">コメント <i class="fas fa-comments"></i></h2>
-        <% @post.comments.each do |comment| %>
-        <div class="px-5">
-            <div class="p-comment__item">
-                <p><%= simple_format(comment.comment) %></p>
-                <div class="p-comment__bottomLine">
-                    <span><%= comment.name %></span>
-                    <span><%= comment.created_at.to_s(:datetime_jp) %></span>
-                    <%= link_to '削除', post_comment_path(@post, comment), class: 'btn btn-danger', method: :delete, data: { confirm: 'コメントを削除してもよろしいですか？' }  %>
+        <div class="card mx-5">
+            <% @post.comments.each do |comment| %>
+            <div class="card-header d-flex py-0">
+                <p class="mb-0 my-auto"><%= comment.name %></p>
+                <p class="ml-auto mt-3"><%= link_to '×', post_comment_path(@post, comment), method: :delete, data: { confirm: 'コメントを削除してもよろしいですか？' }  %></p>
+            </div>
+            <div class="card-body">
+                <p class="card-text"><%= simple_format(comment.comment) %></p>
+                <div class="d-flex">
+                    <p class="ml-auto mb-0"><%= comment.created_at.to_s(:datetime_jp) %></p>
                 </div>
             </div>
+            <% end %>
         </div>
-        <% end %>
     </div>
 </div>
-
 <div class="container backimg2 pb-5 my-5">
     <h2 class="cw py-4">コメント入力欄</h2>
     <div class="px-4">

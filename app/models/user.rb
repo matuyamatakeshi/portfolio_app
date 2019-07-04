@@ -15,7 +15,7 @@
 #  index_users_on_mail  (mail) UNIQUE
 #
 
-class User < ApplicationRecord
+class User < ApplicationRecord   
     has_secure_password    
 
     validates :name, presence: true
