@@ -1,17 +1,3 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.p-comment__item {
-    border-bottom: 2px dotted #dfdfdf;
-  }
-  
-  .p-comment__bottomLine {
-    font-size: 15px;
-    text-align: right;
-  
-    > span {
-      font-size: 14px;
-      margin: 0 12px;
-    }
-  }
