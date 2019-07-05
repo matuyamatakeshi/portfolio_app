@@ -15,11 +15,23 @@
     <div class="alert alert-danger col-12 flashitem1"><%= flash[:alert] %></div>
     <% end %>
     <div class="card mb-3">
-        <div class="card-header">
-            <h4 class="m-0 p-0">
+        <div class="card-header d-flex">
+            <h4 class="m-0 pt-1">
                 <%= @post.title %>
-                <p class="m-1 p-1 badge badge-primary"><%= @post.cname %></p>
+                <p class="m-0 p-1 badge badge-primary"><%= @post.cname %></p>
             </h4>
+            <div class="d-flex ml-auto">
+                <% if current_user.already_liked?(@post) %>
+                <%= button_to post_like_path(@post), class: 'btn btn-primary', method: :delete do %>
+                <i class="fas fa-plane"></i>
+                <% end %>
+                <% else %>
+                <%= button_to post_likes_path(@post), class: 'btn btn-primary' do %>
+                <i class="fas fa-plane"></i>
+                <% end %>
+                <% end %>
+                <h2 class="ml-2 px-2 bg-warning cw"><%= @post.likes.count %></h2>
+            </div>
         </div>
         <div class="card-body">
             <p class="card-text"><%= simple_format(@post.body) %></p>
@@ -48,13 +60,25 @@
             </div>
         </div>
     </div>
+    <div class="px-5 mt-5">
+        <div class="card">
+            <h3 class="card-header">行きたい！ユーザー <i class="fas fa-running"></i></h3>
+            <% @post.liked_users.each do |user| %>
+            <div class="card-body">
+                <li class="card-text"><%= user.name %></li>
+            </div>
+            <% end %>
+        </div>
+    </div>
     <div>
         <h2 class="py-5 pl-3 cw">コメント <i class="fas fa-comments"></i></h2>
         <div class="card mx-5">
             <% @post.comments.each do |comment| %>
             <div class="card-header d-flex py-0">
                 <p class="mb-0 my-auto"><%= comment.name %></p>
-                <p class="ml-auto mt-3"><%= link_to '×', post_comment_path(@post, comment), method: :delete, data: { confirm: 'コメントを削除してもよろしいですか？' }  %></p>
+                <p class="ml-auto mt-3">
+                    <%= link_to '×', post_comment_path(@post, comment), method: :delete, data: { confirm: 'コメントを削除してもよろしいですか？' }  %>
+                </p>
             </div>
             <div class="card-body">
                 <p class="card-text"><%= simple_format(comment.comment) %></p>

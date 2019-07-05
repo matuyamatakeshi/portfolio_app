@@ -16,7 +16,14 @@
 #
 
 class User < ApplicationRecord   
-    has_secure_password    
+    has_secure_password 
+
+    has_many :likes, dependent: :destroy
+    has_many :liked_posts, through: :likes, source: :post
+
+    def already_liked?(post)
+        self.likes.exists?(post_id: post.id)
+    end
 
     validates :name, presence: true
     validates :mail, presence: true, uniqueness: true    

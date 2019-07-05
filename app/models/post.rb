@@ -17,6 +17,9 @@
 class Post < ApplicationRecord
     has_many :comments, dependent: :destroy
 
+    has_many :likes, dependent: :destroy
+    has_many :liked_users, through: :likes, source: :user
+
     validates :name, presence: true, length: { maximum: 10 }
     validates :cname, presence: true, length: { maximum: 10 }
     validates :title, presence: true, length: { maximum: 15 }
