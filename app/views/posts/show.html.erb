@@ -16,10 +16,10 @@
     <% end %>
     <div class="card mb-3">
         <div class="card-header d-flex">
-            <h4 class="m-0 pt-1">
+            <h3 class="m-0 pt-1">
                 <%= @post.title %>
                 <p class="m-0 p-1 badge badge-primary"><%= @post.cname %></p>
-            </h4>
+            </h3>
             <div class="d-flex ml-auto">
                 <% if current_user.already_liked?(@post) %>
                 <%= button_to post_like_path(@post), class: 'btn btn-primary', method: :delete do %>
@@ -71,11 +71,11 @@
         </div>
     </div>
     <div>
-        <h2 class="py-5 pl-3 cw">コメント <i class="fas fa-comments"></i></h2>
+        <h2 class="pt-5 pb-4 pl-3 cw">コメント <i class="fas fa-comments"></i></h2>
         <div class="card mx-5">
             <% @post.comments.each do |comment| %>
             <div class="card-header d-flex py-0">
-                <p class="mb-0 my-auto"><%= comment.name %></p>
+                <h4 class="mb-0 my-auto"><%= comment.name %></h4>
                 <p class="ml-auto mt-3">
                     <%= link_to '×', post_comment_path(@post, comment), method: :delete, data: { confirm: 'コメントを削除してもよろしいですか？' }  %>
                 </p>
