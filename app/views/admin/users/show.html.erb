@@ -7,7 +7,7 @@
     <div class="d-flex">
         <h1 class="cw">ユーザー詳細</h1>
         <div class="ml-auto">
-            <%= link_to '編集', edit_admin_user_path, class: 'btn btn-warning' %>
+            <%= link_to '編集', edit_admin_user_path, class: 'btn btn-warning cw' %>
             <%= link_to '削除', admin_user_path(@user), class: 'btn btn-danger', method: :delete, data: { confirm: 'ユーザーデータを削除してもよろしいですか？' }  %>
         </div>
     </div>

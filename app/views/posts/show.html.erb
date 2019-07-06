@@ -5,7 +5,7 @@
         <h4><p class="ml-4 mt-4 cw badge badge-warning">PV : <%= @post.impressionist_count %></p></h4>
         <div class="ml-auto">
             <%= link_to '一覧', posts_path, class: 'btn btn-primary' %>
-            <%= link_to '編集', edit_post_path(@post), class: 'btn btn-warning' %>
+            <%= link_to '編集', edit_post_path(@post), class: 'btn btn-warning cw' %>
             <%= link_to '削除', post_path(@post), class: 'btn btn-danger', method: :delete, data: { confirm: '投稿を削除してもよろしいですか？' }  %>
         </div>
     </div>
@@ -44,7 +44,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="card mx-4 col-6 col-lg-7">
+        <div class="card mr-3 ml-4 col-7">
             <div class="card-header">
                 <h4>お役立ち情報 <i class="fas fa-info-circle"></i>
             </div>
@@ -52,7 +52,7 @@
                 <p class="card-text"><%= simple_format(@post.information) %></p>
             </div>
         </div>
-        <div class="card ml-3 col-4">
+        <div class="card col-4 ml-lg-4">
             <div class="card-header">
                 <h4>料金 <i class="fas fa-yen-sign"></i>
             </div>
@@ -104,7 +104,7 @@
             <%= f.text_field :comment, class: 'form-control' %>
         </div>
         <div class="pt-4">
-            <%= f.submit '投稿', class: 'btn btn-warning' %>
+            <%= f.submit '投稿', class: 'btn btn-warning cw' %>
             <% end %>
         </div>
     </div>
