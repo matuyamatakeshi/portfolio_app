@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
-  before_action :target_post, only: %i[show edit update destroy]
+  before_action :target_post, only: [:show, :edit, :update, :destroy]
+  impressionist :actions=> [:show]
   
   def index 
     @q = Post.ransack(params[:q])
@@ -13,6 +14,7 @@ class PostsController < ApplicationController
 
   def show
     @like = Like.new
+    impressionist(@post, nil, unique: [:session_hash])
   end
 
   def create

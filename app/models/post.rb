@@ -16,9 +16,10 @@
 
 class Post < ApplicationRecord
     has_many :comments, dependent: :destroy
-
     has_many :likes, dependent: :destroy
     has_many :liked_users, through: :likes, source: :user
+
+    is_impressionable
 
     validates :name, presence: true, length: { maximum: 10 }
     validates :cname, presence: true, length: { maximum: 10 }
