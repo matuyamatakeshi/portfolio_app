@@ -11,36 +11,38 @@
             <%= link_to '削除', admin_user_path(@user), class: 'btn btn-danger', method: :delete, data: { confirm: 'ユーザーデータを削除してもよろしいですか？' }  %>
         </div>
     </div>
-    <div class="card mt-3">
-        <div class="card-header">
-            <h4>名前</h4>
+    <div class="px-5">
+        <div class="card mt-3">
+            <div class="card-header">
+                <h4>名前</h4>
+            </div>
+            <div class="card-body">
+                <%= @user.name %>
+            </div>
         </div>
-        <div class="card-body">
-            <%= @user.name %>
+        <div class="card mt-3">
+            <div class="card-header">
+                <h4>メールアドレス</h4>
+            </div>
+            <div class="card-body">
+                <%= @user.mail %>
+            </div>
         </div>
-    </div>
-    <div class="card mt-3">
-        <div class="card-header">
-            <h4>メールアドレス</h4>
+        <div class="card mt-3">
+            <div class="card-header">
+                <h4>作成日時</h4>
+            </div>
+            <div class="card-body">
+                <%= @user.created_at.to_s(:datetime_jp) %>
+            </div>
         </div>
-        <div class="card-body">
-            <%= @user.mail %>
-        </div>
-    </div>
-    <div class="card mt-3">
-        <div class="card-header">
-            <h4>作成日時</h4>
-        </div>
-        <div class="card-body">
-            <%= @user.created_at.to_s(:datetime_jp) %>
-        </div>
-    </div>
-    <div class="card mt-3 mb-5">
-        <div class="card-header">
-            <h4>更新日時</h4>
-        </div>
-        <div class="card-body">
-            <%= @user.updated_at.to_s(:datetime_jp) %>
+        <div class="card mt-3 mb-4">
+            <div class="card-header">
+                <h4>更新日時</h4>
+            </div>
+            <div class="card-body">
+                <%= @user.updated_at.to_s(:datetime_jp) %>
+            </div>
         </div>
     </div>
 </div>
