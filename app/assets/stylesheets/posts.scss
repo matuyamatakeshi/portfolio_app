@@ -6,7 +6,21 @@
     background-size: cover;
 }
 .imgmsk{
-    background-color: rgba(255, 255, 255, 0.88);
+    background-color: #e6ecf0d3;
+}
+.postbg{
+    background-color: #1DA1F2;
+    border-radius: 8px;
+}
+.post-thumbnail{
+    width: 235px;
+    height: 150px;
+}
+.fs1{
+    font-size: 15px;
+}
+.fs2{
+    font-size: 12px;
 }
 .indexitem2{
     background-color: white;
@@ -30,9 +44,10 @@
     text-align: center;
     font-size: 24px;
 }
-.navbg{
-    background-color: #1DA1F2;
-}
 .tbg{
     background-color: #1DA1F2;
+}
+.post-header-image{
+    width: 95% !important;
+    height: 100% !important;
 }

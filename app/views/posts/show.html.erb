@@ -2,7 +2,9 @@
 <div class="container backimg2 pb-5 mt-5">
     <div class="d-flex align-items-center my-3 pt-2">
         <h2 class="cw"><%= @post.name %>さんの投稿詳細</h2>
-        <h4><p class="ml-4 mt-4 cw badge badge-warning">PV : <%= @post.impressionist_count %></p></h4>
+        <h4>
+            <p class="ml-4 mt-4 cw badge badge-warning">PV : <%= @post.impressionist_count %></p>
+        </h4>
         <div class="ml-auto">
             <%= link_to '一覧', posts_path, class: 'btn btn-primary' %>
             <%= link_to '編集', edit_post_path(@post), class: 'btn btn-warning cw' %>
@@ -24,7 +26,7 @@
             <div class="d-flex ml-auto">
                 <% if current_user.already_liked?(@post) %>
                 <%= button_to post_like_path(@post), class: 'btn btn-primary', method: :delete do %>
-                <i class="fas fa-plane"></i>
+                <i class="fas fa-plane-departure"></i>
                 <% end %>
                 <% else %>
                 <%= button_to post_likes_path(@post), class: 'btn btn-primary' do %>
@@ -36,9 +38,9 @@
         </div>
         <div class="card-body">
             <p class="card-text"><%= simple_format(@post.body) %></p>
-            <p class="pt-4 card-img-bottom">
+            <p class="pt-4 pl-lg-5 pl-4 card-img-bottom">
                 <% if @post.image? %>
-                <%= image_tag @post.image.url %>
+                <%= image_tag @post.image.url ,class: "post-header-image"%>
                 <% end %>
             </p>
         </div>

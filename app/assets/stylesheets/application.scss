@@ -16,15 +16,19 @@
  @import "posts";
  @import "sessions";
 
- body{
+body{
     font-family:'Lucida Grande','Hiragino Kaku Gothic ProN',
     Meiryo, sans-serif;
+    background-color: #e6ecf0;
 }
 footer{
     text-align: center;
     color: rgba(0, 0, 0, 0.616);
 }
 .backimg2{
+    background-color: #1DA1F2;
+}
+.navbg{
     background-color: #1DA1F2;
 }
 .navcolor{
